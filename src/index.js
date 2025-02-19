@@ -4,6 +4,8 @@ const mongoose = require('mongoose');
 
 dotenv.config();
 
+const userRoutes = require('./routes/userRoutes');
+
 const app = express();
 const PORT = process.env.PORT || 5555;
 const MONGOURI = process.env.MONGOURI;
@@ -13,6 +15,9 @@ mongoose.connect(MONGOURI)
     .catch((err) => {console.error('Error connecting to MongoDB...', err)})
 
 app.use(express.json());
+
+app.use('/user', userRoutes);
+
 app.listen(PORT, () => {
     console.log(`Server listening on port ${PORT}`);
 });
