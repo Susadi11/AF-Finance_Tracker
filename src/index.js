@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 dotenv.config();
 
 const userRoutes = require('./routes/userRoutes');
+const transactionRoutes = require('./routes/transactionRoutes');
 
 const app = express();
 const PORT = process.env.PORT || 5555;
@@ -17,6 +18,7 @@ mongoose.connect(MONGOURI)
 app.use(express.json());
 
 app.use('/user', userRoutes);
+app.use('/transaction', transactionRoutes);
 
 app.listen(PORT, () => {
     console.log(`Server listening on port ${PORT}`);
