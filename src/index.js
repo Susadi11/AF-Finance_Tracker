@@ -7,6 +7,7 @@ dotenv.config();
 const userRoutes = require('./routes/userRoutes');
 const transactionRoutes = require('./routes/transactionRoutes');
 const budgetRoutes = require('./routes/budgetRoutes');
+const goalRoutes = require('./routes/goalRoutes');
 
 const app = express();
 const PORT = process.env.PORT || 5555;
@@ -21,6 +22,7 @@ app.use(express.json());
 app.use('/user', userRoutes);
 app.use('/transaction', transactionRoutes);
 app.use('/budget', budgetRoutes);
+app.use('/goal', goalRoutes);
 
 app.listen(PORT, () => {
     console.log(`Server listening on port ${PORT}`);
