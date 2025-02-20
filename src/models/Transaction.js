@@ -38,7 +38,7 @@ const TransactionSchema = new mongoose.Schema ({
         type: Boolean,
         default: false
     },
-    recurringPrefs: {
+    recurringDetails: {
         frequency: {
             type: String,
             enum: ['daily', 'weekly', 'monthly', 'yearly'],

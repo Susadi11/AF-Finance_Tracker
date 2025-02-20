@@ -3,7 +3,7 @@ const Transaction = require('../models/Transaction');
 exports.createTransaction = async (req, res) => {
     try {
         const { user, type, amount, currency, category, description, date, tags, isRecurring, recurringDetails } = req.body;
-        const newTransaction = new Transaction({user, type, amount, currency, category, description, date, tags, isRecurring});
+        const newTransaction = new Transaction({user, type, amount, currency, category, description, date, tags, isRecurring}, recurringDetails);
         await newTransaction.save();
         console.log("Transaction saved successfully" + res);
         res.status(201).json({message: "Transaction saved successfully", transaction: newTransaction});
